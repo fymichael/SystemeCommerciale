@@ -230,22 +230,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./purchase-request-list">
-                                <span class="menu-title">Demandes d'achat</span>
-                                <i class="mdi mdi-basket-unfill menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./article-price-insertion">
-                                <span class="menu-title">Proformas</span>
-                                <i class="mdi mdi-note-outline menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/icons/mdi.html">
-                                <span class="menu-title">Bon de commande</span>
+                            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                                <span class="menu-title">Processus Achat</span>
                                 <i class="mdi mdi-cart menu-icon"></i>
                             </a>
+                            <div class="collapse" id="ui-basic">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="./purchase-request-list">Demandes d'achat</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="./article-price-insertion">Proformas</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="./purchase-order-list">Bon de commande</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </nav>

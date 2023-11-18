@@ -2,44 +2,6 @@ CREATE DATABASE system_commerce;
 
 \c system_commerce;
 
--- Table de base pour l'authentification 
-CREATE SEQUENCE seq_service;
-CREATE TABLE service (
-    id_service INTEGER DEFAULT nextval('seq_service'),
-    service VARCHAR(50),
-    fonction VARCHAR(50),
-    creation_date DATE,
-    status INTEGER,
-    PRIMARY KEY(id_service)
-);
-
-CREATE SEQUENCE seq_utilisateur;
-CREATE TABLE utilisateur (
-    id_utilisateur INTEGER DEFAULT nextval('seq_utilisateur'),
-    id_service INTEGER,
-    username VARCHAR(50),
-    password VARCHAR(20),
-    mail VARCHAR(50),
-    admin BOOLEAN,
-    photo VARCHAR(50),
-    status INTEGER,
-    PRIMARY KEY(id_utilisateur),
-    FOREIGN KEY(id_service) REFERENCES service(id_service)
-);
-
-INSERT INTO service( id_service, service, fonction, creation_date, status ) VALUES ( 1, 'Administration', 'Responsable de l''administration du societe', '2022-01-01', 1);
-INSERT INTO service( id_service, service, fonction, creation_date, status ) VALUES ( 2, 'Ressources humaines', 'Responsable des ressources humaines', '2022-01-01', 1);
-INSERT INTO service( id_service, service, fonction, creation_date, status ) VALUES ( 3, 'Production', 'Responsable des productions du societe', '2022-01-01', 1);
-
-INSERT INTO "public".utilisateur( id_utilisateur, id_service, username, password, mail, status, admin, photo ) VALUES ( 1, 1, 'INSSA Chalman', 'chalman', 'inssa.chalman@gmail.com', 1, true, 'chalman.png');
-INSERT INTO "public".utilisateur( id_utilisateur, id_service, username, password, mail, status, admin, photo ) VALUES ( 2, 2, 'To MAMIARILAZA', 'to', 'mamiarilaza.to@gmail.com', 1, true, 'to.png');
-INSERT INTO "public".utilisateur( id_utilisateur, id_service, username, password, mail, status, admin, photo ) VALUES ( 3, 3, 'Fy Michael', 'fy', 'fy.michael@gmail.com', 1, true, 'fy.png');
-INSERT INTO "public".utilisateur( id_utilisateur, id_service, username, password, mail, status, admin, photo ) VALUES ( 4, 3, 'Finoana RAKOTO', 'finoana', 'finoanaRAKOTO@gmail.com', 1, false, 'finoana.png');
-INSERT INTO "public".utilisateur( id_utilisateur, id_service, username, password, mail, status, admin, photo ) VALUES ( 5, 3, 'Solo RATSIVAHINY', 'solo', 'soloRATSIVAHINY@gmail.com', 1, false, 'solo.png');
-INSERT INTO "public".utilisateur( id_utilisateur, id_service, username, password, mail, status, admin, photo ) VALUES ( 6, 1, 'Mialy RIANTSOA', 'mialy', 'mialy.RIANTSOA@gmail.com', 1, false, 'mialy.png');
-
--- TABLE POUR LA GESTION D'ARTICLE
-
 CREATE SEQUENCE seq_category;
 CREATE TABLE category (
     id_category int PRIMARY KEY DEFAULT nextval('seq_category') NOT NULL,
@@ -77,7 +39,7 @@ INSERT INTO unity(name) VALUES
     ('Piece');
 
 -- Insertion des données de test dans la table 'category'
-ALTER SEQUENCE seq_category RESTART WITH 1;
+ALTER SEQUENCE seq_category START WITH 11;
 INSERT INTO category (code, designation, description, status) VALUES
     ('CAT001', 'Electronique', 'Derniers gadgets et articles electroniques', 1),
     ('CAT002', 'Vetements', 'Vetements a la mode pour toutes les saisons', 1),
