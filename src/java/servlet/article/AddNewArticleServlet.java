@@ -4,6 +4,7 @@
  */
 package servlet.article;
 
+import generalisation.GenericDAO.GenericDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,6 +14,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import model.article.Article;
+import model.article.Category;
 
 /**
  *
@@ -44,6 +47,9 @@ public class AddNewArticleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            //Listes category
+            List<Category> categorys = (List<Category>) GenericDAO.getAll(Category.class, null, null);
+            request.setAttribute("categorys", categorys);
             
             // All required assets
             List<String> css = new ArrayList<>();
@@ -75,6 +81,19 @@ public class AddNewArticleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
+            String code = request.getParameter("code");
+            String description = request.getParameter("description");
+            String designation = request.getParameter("designation");
+            String category = request.getParameter("category");
+            String tva = request.getParameter("tva");
+            Article newArticle = new Article(code, description, designation, category, tva);
+            GenericDAO.save(newArticle, null);
+        } catch(Exception e) {
+            request.setAttribute("error", e.getMessage());
+            e.printStackTrace();
+        }
+        doGet(request, response);
     }
 
     /**

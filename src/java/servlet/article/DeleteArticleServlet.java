@@ -5,6 +5,7 @@
 package servlet.article;
 
 import generalisation.GenericDAO.GenericDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,16 +13,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 import model.article.Article;
 
 /**
  *
- * @author To Mamiarilaza
+ * @author chalman
  */
-@WebServlet(name = "AllArticleServlet", urlPatterns = {"/all-article"})
-public class AllArticleServlet extends HttpServlet {
+@WebServlet(name = "DeleteArticleServlet", urlPatterns = {"/DeleteArticle"})
+public class DeleteArticleServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +31,23 @@ public class AllArticleServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet DeleteArticleServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet DeleteArticleServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -46,28 +61,16 @@ public class AllArticleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            //all article
-             List<Article> articles = (List<Article>) GenericDAO.directQuery(Article.class, "SELECT * FROM article WHERE status = 1 ORDER BY id_article DESC", null);
-            //List<Article> articles = GenericDAO.getAll(Article.class, null, null);
-            request.setAttribute("articles", articles);
-            
-            // All required assets
-            List<String> css = new ArrayList<>();
-            css.add("assets/css/supplier/supplier.css");
-            
-            List<String> js = new ArrayList<>();
-            
-            request.setAttribute("css", css);
-            request.setAttribute("js", js);
-            
-            // Page definition
-            request.setAttribute("title", "Listes des articles");
-            request.setAttribute("contentPage", "./pages/article/allArticle.jsp");
-            
-            request.getRequestDispatcher("./template.jsp").forward(request, response);
-        } catch (Exception e) {
+            String idArticle = request.getParameter("idArticle");
+            Article article = GenericDAO.findById(Article.class, Integer.valueOf(idArticle), null);
+            article.setStatus(0);
+            GenericDAO.updateById(article, Integer.valueOf(idArticle), null);
+        } catch(Exception e) {
+            request.setAttribute("error", e.getMessage());
             e.printStackTrace();
         }
+        RequestDispatcher dispat = request.getRequestDispatcher("./all-article");
+        dispat.forward(request, response);
     }
 
     /**
@@ -81,7 +84,7 @@ public class AllArticleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        processRequest(request, response);
     }
 
     /**

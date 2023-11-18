@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package servlet.article;
+package servlet.purchase;
 
-import generalisation.GenericDAO.GenericDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,14 +13,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
-import model.article.Article;
 
 /**
  *
  * @author To Mamiarilaza
  */
-@WebServlet(name = "AllArticleServlet", urlPatterns = {"/all-article"})
-public class AllArticleServlet extends HttpServlet {
+@WebServlet(name = "PurchaseRequestDetailServlet", urlPatterns = {"/purchase-request-detail"})
+public class PurchaseRequestDetailServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +30,7 @@ public class AllArticleServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -46,10 +44,6 @@ public class AllArticleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            //all article
-             List<Article> articles = (List<Article>) GenericDAO.directQuery(Article.class, "SELECT * FROM article WHERE status = 1 ORDER BY id_article DESC", null);
-            //List<Article> articles = GenericDAO.getAll(Article.class, null, null);
-            request.setAttribute("articles", articles);
             
             // All required assets
             List<String> css = new ArrayList<>();
@@ -61,8 +55,8 @@ public class AllArticleServlet extends HttpServlet {
             request.setAttribute("js", js);
             
             // Page definition
-            request.setAttribute("title", "Listes des articles");
-            request.setAttribute("contentPage", "./pages/article/allArticle.jsp");
+            request.setAttribute("title", "Detail d'une demande");
+            request.setAttribute("contentPage", "./pages/request/purchaseRequestDetail.jsp");
             
             request.getRequestDispatcher("./template.jsp").forward(request, response);
         } catch (Exception e) {
@@ -81,7 +75,6 @@ public class AllArticleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
     }
 
     /**
