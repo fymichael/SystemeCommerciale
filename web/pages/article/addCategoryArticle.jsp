@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
                             <input type="text" class="form-control" id="exampleInputPassword1"
-                                   placeholder="Utilisé pour protection sanitaire" name="description">
+                                   placeholder="Utilise pour protection sanitaire" name="description">
                         </div>
                         <% if(request.getAttribute("error") != null) { %>
                         <p class="text-error"><i class="mdi mdi-information-outline"></i><%=request.getAttribute("error") %></p>

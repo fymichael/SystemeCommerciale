@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
                             <input type="text" class="form-control" id="exampleInputPassword1"
-                                   placeholder="Utilisé pour protection sanitaire" name="description">
+                                   placeholder="Utilise pour protection sanitaire" name="description">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">TVA</label>
@@ -51,7 +51,7 @@
                                 <% if(request.getAttribute("categorys") != null) { 
                                     List<Category> categorys = (List<Category>)request.getAttribute("categorys");
                                 %>
-                                <select name="category">
+                                <select name="category" class="form-control form-control-sm">
                                     <% for(int i = 0; i < categorys.size(); i++) { %>
                                     <option value="<%=categorys.get(i).getIdCategory() %>"><%=categorys.get(i).getDesignation() %></option>
                                     <% } %>

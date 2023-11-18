@@ -51,7 +51,7 @@
                         <ul>
                             <li>Produits premier necessite</li>
                             <li>Produits agricole</li>
-                            <li>Produits hygiénique</li>
+                            <li>Produits hygienique</li>
                         </ul>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                     </tbody>
                 </table>
                 <div class="mt-4">
-                    <p><strong>Arrete le present proforma à la somme de :</strong> <br> <span>Trois cent deux mille neux cent ARIARY</span></p>
+                    <p><strong>Arrete le present proforma a la somme de :</strong> <br> <span>Trois cent deux mille neux cent ARIARY</span></p>
                 </div>
                 <div class="mt-3">
                     <a  href="./article-price-insertion" class="btn btn-light">Cancel</a>
