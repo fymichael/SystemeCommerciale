@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="model.article.Category"%>
 <%@page import="model.article.Article"%>
+<%@page import="model.article.Unity"%>
 
 <div class="page-header">
     <h3 class="page-title">
@@ -66,8 +67,22 @@
                                 </select>
                                 <% } %>
                             </div>
-                            <div class="col-md-5">
-                                <a href="./add-categorie" class="btn btn-gradient-primary"><i class="mdi mdi-playlist-plus me-2 "></i> Ajouter</a>
+                              <div class="form-group row align-items-end">
+                            <div class="col-md-7">
+                                <label for="">Unite</label>
+                                <% if(request.getAttribute("unitys") != null) { 
+                                    List<Unity> unitys = (List<Unity>)request.getAttribute("unitys");
+                                %>
+                                <select name="unity">
+                                    <% for(int i = 0; i < unitys.size(); i++) { 
+                                    if(unitys.get(i).getIdUnity() == article.getUnity().getIdUnity()) { %>
+                                        <option cheked value="<%=unitys.get(i).getIdUnity() %>"><%=unitys.get(i).getName() %></option>
+                                    <% } 
+                                    else {%>
+                                    <option value="<%=unitys.get(i).getIdUnity() %>"><%=unitys.get(i).getName() %></option>
+                                    <% } } %>
+                                </select>
+                                <% } %>
                             </div>
                         </div>
                         <% if(request.getAttribute("error") != null) { %>
