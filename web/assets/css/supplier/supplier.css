@@ -1,4 +1,27 @@
 .action-icon {
   font-size: 20px;
   margin: 0px 18px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-error {
+  font-size: 14px;
+  color: rgb(245, 99, 99);
+  display: flex;
+  align-items: center;
+}
+.text-error i {
+  font-size: 20px;
+  margin-right: 18px;
+}
+
+.label-width {
+  width: 80px;
+}
+
+.input-height {
+  height: 45px !important;
 }/*# sourceMappingURL=supplier.css.map */

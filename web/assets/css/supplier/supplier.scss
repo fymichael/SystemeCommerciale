@@ -2,3 +2,27 @@
     font-size: 20px;
     margin: 0px 18px;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.text-error {
+    font-size: 15px;
+    color: rgb(245, 99, 99);
+    display: flex;
+    align-items: center;
+
+    i {
+        font-size: 20px;
+        margin-right: 18px;
+    }
+}
+
+.label-width {
+    width: 80px;
+}
+
+.input-height {
+    height: 35px !important;
+}

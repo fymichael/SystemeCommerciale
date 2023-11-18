@@ -55,11 +55,12 @@ public class SupplierListServlet extends HttpServlet {
             request.setAttribute("js", js);
             
             // Page definition
-            request.setAttribute("title", "Accueil");
+            request.setAttribute("title", "Listes des fournisseurs");
             request.setAttribute("contentPage", "./pages/supplier/supplierList.jsp");
             
             request.getRequestDispatcher("./template.jsp").forward(request, response);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

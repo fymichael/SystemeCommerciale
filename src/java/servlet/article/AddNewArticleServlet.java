@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package servlet.supplier;
+package servlet.article;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,8 +18,8 @@ import java.util.List;
  *
  * @author To Mamiarilaza
  */
-@WebServlet(name = "SupplierInsertionServlet", urlPatterns = {"/supplier-insertion"})
-public class SupplierInsertionServlet extends HttpServlet {
+@WebServlet(name = "AddNewArticleServlet", urlPatterns = {"/add-article"})
+public class AddNewArticleServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,6 +44,7 @@ public class SupplierInsertionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            
             // All required assets
             List<String> css = new ArrayList<>();
             css.add("assets/css/supplier/supplier.css");
@@ -54,8 +55,8 @@ public class SupplierInsertionServlet extends HttpServlet {
             request.setAttribute("js", js);
             
             // Page definition
-            request.setAttribute("title", "Insertion fournisseur");
-            request.setAttribute("contentPage", "./pages/supplier/newSupplierInsertion.jsp");
+            request.setAttribute("title", "Ajout article");
+            request.setAttribute("contentPage", "./pages/article/addNewArticle.jsp");
             
             request.getRequestDispatcher("./template.jsp").forward(request, response);
         } catch (Exception e) {

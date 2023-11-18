@@ -28,20 +28,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Adresse</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Email">
+                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Antananrivo Avenue Tokyo">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Contact du
                                         responsable</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1"
-                                        placeholder="Password">
+                                    <input type="text" class="form-control" id="exampleInputPassword1"
+                                        placeholder="+261 00 000 00">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputConfirmPassword1">Mail</label>
-                                    <input type="password" class="form-control" id="exampleInputConfirmPassword1"
-                                        placeholder="Password">
+                                    <input type="mail" class="form-control" id="exampleInputConfirmPassword1"
+                                        placeholder="johnDoe@example.com">
                                 </div>
+                                <p class="text-error"><i class="mdi mdi-information-outline"></i> Veillez remplir toutes les champs</p>
                                 <button type="submit" class="btn btn-gradient-primary px-5 me-2">Valider</button>
                                 <button class="btn btn-light">Cancel</button>
                             </div>

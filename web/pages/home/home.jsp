@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Bienvenue dans le systeme de gestion commerciale</h4>
-                <p> Une application conçue pour simplifier et optimiser l'ensemble du processus
+                <p> Une application concue pour simplifier et optimiser l'ensemble du processus
                     d'exploitation de votre entreprise.</p>
             </div>
         </div>
