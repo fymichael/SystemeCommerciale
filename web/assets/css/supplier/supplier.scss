@@ -26,3 +26,57 @@
 .input-height {
     height: 35px !important;
 }
+
+.quantity-detail {
+    padding-bottom: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    border-bottom: solid 1px lightgray;
+}
+
+.td-little-padding {
+    td {
+        padding: 10px 0px;
+    }
+}
+
+.primary-color {
+    color: #da8cff;
+}
+
+.second-color {
+    color: #f5986c;
+}
+
+.montant {
+    font-size: 14px;
+}
+
+.add-button {
+    color: #da8cff;
+    font-size: 38px;
+}
+
+.article-detail {
+    .inside-div {
+        border: solid lightgray 1px;
+        padding: 30px;
+    }
+}
+
+.article-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.no-style-link {
+    text-decoration: none;
+}
+
+.table-no-border {
+    border: none;
+    td {
+        border: none;
+        padding-bottom: 0;
+    }
+}

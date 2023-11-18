@@ -72,7 +72,7 @@
                                     <label class="badge badge-gradient-warning label-width">Non traite</label>
                                 </td>
                                 <td>
-                                    <a href=""><i class="mdi mdi-clipboard-text action-icon"></i></a>
+                                    <a href="./purchase-request-detail"><i class="mdi mdi-clipboard-text action-icon"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -84,7 +84,7 @@
                                     <label class="badge badge-gradient-success label-width">Valide</label>
                                 </td>
                                 <td>
-                                    <a href=""><i class="mdi mdi-clipboard-text action-icon"></i></a>
+                                    <a href="./purchase-request-detail"><i class="mdi mdi-clipboard-text action-icon"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -96,7 +96,7 @@
                                     <label class="badge badge-gradient-danger label-width">Refuse</label>
                                 </td>
                                 <td>
-                                    <a href=""><i class="mdi mdi-clipboard-text action-icon"></i></a>
+                                    <a href="./purchase-request-detail"><i class="mdi mdi-clipboard-text action-icon"></i></a>
                                 </td>
                             </tr>
                         </tbody>
