@@ -2,6 +2,45 @@ CREATE DATABASE system_commerce;
 
 \c system_commerce;
 
+CREATE SEQUENCE seq_service;
+CREATE TABLE service (
+    id_service INTEGER DEFAULT nextval('seq_service'),
+    service VARCHAR(50),
+    fonction VARCHAR(50),
+    creation_date DATE,
+    status INTEGER,
+    PRIMARY KEY(id_service)
+);
+
+CREATE SEQUENCE seq_utilisateur;
+CREATE TABLE utilisateur (
+    id_utilisateur INTEGER DEFAULT nextval('seq_utilisateur'),
+    id_service INTEGER,
+    username VARCHAR(50),
+    password VARCHAR(20),
+    mail VARCHAR(50),
+    admin BOOLEAN,
+    photo VARCHAR(50),
+    status INTEGER,
+    PRIMARY KEY(id_utilisateur),
+    FOREIGN KEY(id_service) REFERENCES service(id_service)
+);
+
+ALTER SEQUENCE seq_service RESTART WITH 1;
+INSERT INTO service(service, fonction, creation_date, status ) VALUES ('Administration', 'Responsable de l''administration du societe', '2022-01-01', 1);
+INSERT INTO service(service, fonction, creation_date, status ) VALUES ('Ressources humaines', 'Responsable des ressources humaines', '2022-01-01', 1);
+INSERT INTO service(service, fonction, creation_date, status ) VALUES ('Production', 'Responsable des productions du societe', '2022-01-01', 1);
+INSERT INTO service(service, fonction, creation_date, status ) VALUES ('Approvisionnement', 'Responsable des achats du societe', '2022-01-01', 1);
+INSERT INTO service(service, fonction, creation_date, status ) VALUES ('Finance', 'Responsable du finance du societe', '2022-01-01', 1);
+
+ALTER SEQUENCE seq_utilisateur RESTART WITH 1;
+INSERT INTO utilisateur(id_service, username, password, mail, status, admin, photo ) VALUES (1, 'INSSA Chalman', 'chalman', 'inssa.chalman@gmail.com', 1, true, 'chalman.png');
+INSERT INTO utilisateur(id_service, username, password, mail, status, admin, photo ) VALUES (4, 'To MAMIARILAZA', 'to', 'mamiarilaza.to@gmail.com', 1, true, 'to.png');
+INSERT INTO utilisateur(id_service, username, password, mail, status, admin, photo ) VALUES (3, 'Fy Michael', 'fy', 'fy.michael@gmail.com', 1, true, 'fy.png');
+INSERT INTO utilisateur(id_service, username, password, mail, status, admin, photo ) VALUES (3, 'Finoana RAKOTO', 'finoana', 'finoanaRAKOTO@gmail.com', 1, false, 'finoana.png');
+INSERT INTO utilisateur(id_service, username, password, mail, status, admin, photo ) VALUES (3, 'Solo RATSIVAHINY', 'solo', 'soloRATSIVAHINY@gmail.com', 1, false, 'solo.png');
+INSERT INTO utilisateur(id_service, username, password, mail, status, admin, photo ) VALUES (5, 'Mialy RIANTSOA', 'mialy', 'mialy.RIANTSOA@gmail.com', 1, true, 'mialy.png');
+
 CREATE SEQUENCE seq_category;
 CREATE TABLE category (
     id_category int PRIMARY KEY DEFAULT nextval('seq_category') NOT NULL,
