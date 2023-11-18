@@ -47,7 +47,7 @@
                                 <th> Designation </th>
                                 <th> Description </th>
                                 <th> Categorie </th>
-                                <th> Aticle </th>
+                                <th> Unite </th>
                                 <th> TVA </th>
                                 <th> </th>
                             </tr>
