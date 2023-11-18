@@ -1,9 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@page import="java.util.List" %>
-<% 
-    List<String> css = (List<String>) request.getAttribute("css");
-    List<String> js = (List<String>) request.getAttribute("js");
-%>
+<!-- <%@ page contentType="text/html; charset=UTF-8" %> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,33 +6,35 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Purple Admin</title>
+        <title>Gestion Ressource Humaine</title>
+
         <!-- plugins:css -->
-        <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-        <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+        <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="./assets/css/besoin/besoin-insertion.css">
+        <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
         <!-- endinject -->
         <!-- Plugin css for this page -->
-        <% for(String cssElement : css) { %>
-        <link rel="stylesheet" href="<%= cssElement %>">
-        <% } %>
         <!-- End plugin css for this page -->
         <!-- inject:css -->
         <!-- endinject -->
         <!-- Layout styles -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
         <!-- End layout styles -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico" />
+        <link rel="shortcut icon" href="./assets/images/favicon.ico" />
     </head>
 
     <body>
         <div class="container-scroller">
-            <!-- partial:partials/_navbar.html -->
+            <!-- partial:./partials/_navbar.html -->
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg"
-                                                                              alt="logo" /></a>
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
-                                                                                   alt="logo" /></a>
+                    <a class="d-flex align-items-center d-navbar-brand brand-logo"
+                       style="text-decoration: none; color: #da8cff;" href="./index.html">
+                        <i class="mdi mdi-account-box" style="font-size: 35px;margin-right: 25px;"></i>
+                        <h2 style="margin: 0;">GRH</h2>
+                    </a>
+                    <a class="navbar-brand brand-logo-mini" href="./index.html"><img
+                            src="./assets/images/logo-mini.svg" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper d-flex align-items-stretch">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -59,7 +56,7 @@
                             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
                                aria-expanded="false">
                                 <div class="nav-profile-img">
-                                    <img src="assets/images/faces/face1.jpg" alt="image">
+                                    <img src="./assets/images/faces/face1.jpg" alt="image">
                                     <span class="availability-status online"></span>
                                 </div>
                                 <div class="nav-profile-text">
@@ -91,7 +88,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                                        <img src="./assets/images/faces/face4.jpg" alt="image" class="profile-pic">
                                     </div>
                                     <div
                                         class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -103,7 +100,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic">
+                                        <img src="./assets/images/faces/face2.jpg" alt="image" class="profile-pic">
                                     </div>
                                     <div
                                         class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -115,7 +112,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face3.jpg" alt="image" class="profile-pic">
+                                        <img src="./assets/images/faces/face3.jpg" alt="image" class="profile-pic">
                                     </div>
                                     <div
                                         class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -200,13 +197,13 @@
             </nav>
             <!-- partial -->
             <div class="container-fluid page-body-wrapper">
-                <!-- partial:partials/_sidebar.html -->
+                <!-- partial:./partials/_sidebar.html -->
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav">
                         <li class="nav-item nav-profile">
                             <a href="#" class="nav-link">
                                 <div class="nav-profile-image">
-                                    <img src="assets/images/faces/face1.jpg" alt="profile">
+                                    <img src="./assets/images/faces/face1.jpg" alt="profile">
                                     <span class="login-status online"></span>
                                     <!--change to offline or busy as needed-->
                                 </div>
@@ -217,62 +214,139 @@
                                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./supplier-list">
-                                <span class="menu-title">Fournisseurs</span>
-                                <i class="mdi mdi-gift menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./all-article">
-                                <span class="menu-title">Articles</span>
-                                <i class="mdi mdi-buffer menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./purchase-request-list">
-                                <span class="menu-title">Demandes d'achat</span>
-                                <i class="mdi mdi-basket-unfill menu-icon"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                               aria-controls="ui-basic">
-                                <span class="menu-title">Proformas</span>
-                                <i class="mdi mdi-note-outline menu-icon"></i>
-                            </a>
-                            <div class="collapse" id="ui-basic">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link"
-                                                             href="pages/ui-features/buttons.html">Insertion des prix</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Liste
-                                            des proformas</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/icons/mdi.html">
-                                <span class="menu-title">Bon de commande</span>
-                                <i class="mdi mdi-cart menu-icon"></i>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./index.html">
+                                <span class="menu-title">Dashboard</span>
+                                <i class="mdi mdi-home menu-icon"></i>
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                               aria-controls="ui-basic">
+                                <span class="menu-title">Recrutements</span>
+                                <i class="mdi mdi-contacts menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="ui-basic">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="./besoin-insertion">Insertion d'un besoin</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="listBesoins">Besoins
+                                            des services</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                                             href="annonce">Annonce</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="./PersonalInformationInsertionServlet">Insertion d'un candidature</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                                             href="listCandidature">Réceptions des CV</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                                             href="pages/ui-features/typography.html">Résultats des tests</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                                             href="pages/ui-features/typography.html">Programme d'entretien</a></li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                                             href="pages/ui-features/typography.html">Résultat candidature</a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
+
                 <!-- partial -->
                 <div class="main-panel">
                     <div class="content-wrapper">
-                        <jsp:include page="${contentPage}" />
+                        <div class="page-header">
+                            <h3 class="page-title">
+                                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                                    <i class="mdi mdi-home"></i>
+                                </span> Demandes d'achat
+                            </h3>
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        <span></span>Overview <i
+                                            class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8 grid-margin mx-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Envoyer demande achat</h4>
+                                        <div class="mt-4">
+                                            <form action="" method="POST">
+                                                <div class="form-group">
+                                                    <label for="exampleInputUsername1">Titre du demande</label>
+                                                    <input type="text" name="title" class="form-control" id="exampleInputUsername1"
+                                                           placeholder="Demande mensuel du departement">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Description</label>
+                                                    <textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+                                                </div>
+                                                <div class="row align-items-end">
+                                                    <div class="form-group col-md-5">
+                                                        <label for="article">Article</label>
+                                                        <select name="article" class="form-control form-control-sm input-height mt-2" id="">
+                                                            <option value="">Cache bouche</option>
+                                                            <option value="">Ordinateur</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="article">Quantite</label>
+                                                        <input type="number" class="form-control mt-2" value="10"  name="quantite">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for=""></label>
+                                                        <input type="button" class="btn btn-gradient-primary" value="Ajouter">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-8">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>ART0001</td>
+                                                                    <td>Cache bouche</td>
+                                                                    <td>20</td>
+                                                                    <td>Unite</td>
+                                                                    <td><a href="" class="action-icon text-danger"><i class="mdi mdi-delete"></i></a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>ART0001</td>
+                                                                    <td>Cache bouche</td>
+                                                                    <td>20</td>
+                                                                    <td>Litre</td>
+                                                                    <td><a href="" class="action-icon text-danger"><i class="mdi mdi-delete"></i></a></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <p class="text-error"><i class="mdi mdi-information-outline"></i> Veillez remplir toutes les champs</p>
+                                                <div class="mt-3">
+                                                    <button type="submit"
+                                                            class="btn btn-gradient-primary px-5 me-2">Valider</button>
+                                                    <a  href="./purchase-request-list" class="btn btn-light">Cancel</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <!-- content-wrapper ends -->
                     <!-- partial:/partials/_footer.html -->
                     <footer class="footer">
                         <div class="container-fluid d-flex justify-content-between">
-                            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright �
-                                bootstrapdash.com 2021</span>
-                            <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a
-                                    href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap
-                                    admin template</a> from Bootstrapdash.com</span>
+                            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright bootstrapdash.com 2021</span>
+                            <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>
                         </div>
                     </footer>
                     <!-- partial -->
@@ -291,13 +365,9 @@
         <script src="./assets/js/off-canvas.js"></script>
         <script src="./assets/js/hoverable-collapse.js"></script>
         <script src="./assets/js/misc.js"></script>
+        <script src="./assets/js/my_custom_js/template/automated_title.js"></script>
         <!-- endinject -->
         <!-- Custom js for this page -->
-        <% for(String jsElement : js) { %>
-        <script src="<%= jsElement %>"></script>
-        <% } %>
         <!-- End custom js for this page -->
     </body>
-
 </html>
-
