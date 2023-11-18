@@ -78,4 +78,13 @@
 
 .text-right {
   text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.condition-list {
+  max-height: 100px;
+  overflow-y: auto;
 }/*# sourceMappingURL=supplier.css.map */
