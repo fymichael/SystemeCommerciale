@@ -14,9 +14,9 @@ import java.sql.DriverManager;
 public class DBConnection {
     public static Connection getConnection() throws Exception {     
         // Fonction qui renvoie la connection vers la base : 
-            String database = "";       // Nom de la base
-            String user = "";       // User dans postgres
-            String mdp = "";       // Mot de passe
+            String database = "system_commerce";       // Nom de la base
+            String user = "postgres";       // User dans postgres
+            String mdp = "postgres";       // Mot de passe
             
             Class.forName("org.postgresql.Driver");
             

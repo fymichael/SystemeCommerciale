@@ -1,3 +1,7 @@
+<%@page import="java.util.List"%>
+<%@page import="model.article.Category"%>
+<%@page import="model.article.Article"%>
+
 <div class="page-header">
     <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
@@ -47,35 +51,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <% if(request.getAttribute("articles") != null) { 
+                                List<Article> articles = (List<Article>)request.getAttribute("articles");
+                                for(int i = 0; i < articles.size(); i++) {
+                            %>
                             <tr>
-                                <td><a href="" style="text-decoration: none;">G0011</a></td>
-                                <td>Cache bouche</td>
-                                <td>Utilise pour protection sanitaire</td>
-                                <td>Hygiene</td>
-                                <td>20 %</td>
+                                <td><a href="" style="text-decoration: none;"><%=articles.get(i).getCode() %></a></td>
+                                <td><%=articles.get(i).getDesignation() %></td>
+                                <td><%=articles.get(i).getDescription() %></td>
+                                <td><%=articles.get(i).getCategory().getDesignation() %></td>
+                                <td><%=articles.get(i).getTva() %></td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="" class="me-4"><label class="badge badge-gradient-success pointer">Voir plus</label></a>
-                                        <a href="" class="text-warning action-icon"><i class="mdi mdi-settings"></i></a>
-                                        <a href="" class="text-danger action-icon"><i class="mdi mdi-delete"></i></a>
+                                        <a href="./EditArticle?idArticle=<%=articles.get(i).getIdArticle() %>" class="text-warning action-icon"><i class="mdi mdi-settings"></i></a>
+                                        <a href="./DeleteArticle?idArticle=<%=articles.get(i).getIdArticle() %>" class="text-danger action-icon"><i class="mdi mdi-delete"></i></a>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td><a href="" style="text-decoration: none;">G0011</a></td>
-                                <td>Cache bouche</td>
-                                <td>Utilise pour protection sanitaire</td>
-                                <td>Hygiene</td>
-                                <td>20 %</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <a href="" class="me-4"><label class="badge badge-gradient-success pointer">Voir plus</label></a>
-                                        <a href="" class="text-warning action-icon"><i class="mdi mdi-settings"></i></a>
-                                        <a href="" class="text-danger action-icon"><i class="mdi mdi-delete"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            
+                            <% } } %>
                         </tbody>
                     </table>
                 </div>

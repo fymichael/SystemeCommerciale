@@ -4,6 +4,7 @@
  */
 package servlet.article;
 
+import generalisation.GenericDAO.GenericDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import model.article.Category;
 
 /**
  *
@@ -75,6 +77,18 @@ public class AddNewCategorieServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
+            String code = request.getParameter("code");
+            String description = request.getParameter("description");
+            String designation = request.getParameter("designation");
+           
+            Category newCategory = new Category(code, designation, description);
+            GenericDAO.save(newCategory, null);
+        } catch(Exception e) {
+            request.setAttribute("error", e.getMessage());
+            e.printStackTrace();
+        }
+        doGet(request, response);
     }
 
     /**

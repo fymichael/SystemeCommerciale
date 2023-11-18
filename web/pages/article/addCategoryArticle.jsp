@@ -20,23 +20,25 @@
             <div class="card-body">
                 <h4 class="card-title">Insertion nouvelle categorie</h4>
                 <div class="mt-4">
-                    <form action="" method="POST">
+                    <form action="./add-categorie" method="POST">
                         <div class="form-group">
                             <label for="exampleInputUsername1">Code</label>
                             <input type="text" class="form-control" id="exampleInputUsername1"
-                                placeholder="CAT0000" required>
+                                placeholder="CAT0000" name="code" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Categorie</label>
                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                placeholder="Cache bouche" required >
+                                placeholder="Cache bouche" name="designation" required >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
                             <input type="text" class="form-control" id="exampleInputPassword1"
-                                placeholder="Utilisé pour protection sanitaire">
+                                   placeholder="Utilisé pour protection sanitaire" name="description">
                         </div>
-                        <p class="text-error"><i class="mdi mdi-information-outline"></i> Veillez remplir toutes les champs</p>
+                        <% if(request.getAttribute("error") != null) { %>
+                        <p class="text-error"><i class="mdi mdi-information-outline"></i><%=request.getAttribute("error") %></p>
+                        <% } %>
                         <button type="submit"
                             class="btn btn-gradient-primary px-5 me-2">Valider</button>
                         <a  href="./add-article" class="btn btn-light">Cancel</a>
