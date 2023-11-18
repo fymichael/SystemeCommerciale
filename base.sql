@@ -49,6 +49,12 @@ CREATE TABLE category (
     status INTEGER
 );
 
+CREATE SEQUENCE seq_unity;
+CREATE TABLE unity (
+    id_unity int PRIMARY KEY DEFAULT nextval('seq_unity') NOT NULL,
+    name VARCHAR(50)
+);
+
 CREATE SEQUENCE seq_article;
 CREATE TABLE article (
     id_article int PRIMARY KEY DEFAULT nextval('seq_article') NOT NULL,
@@ -57,10 +63,18 @@ CREATE TABLE article (
     designation VARCHAR(100),
     id_category INTEGER,
     tva DOUBLE PRECISION,
+    id_unity int,
     status INTEGER,
-    FOREIGN KEY(id_category) REFERENCES category(id_category)
+    FOREIGN KEY(id_category) REFERENCES category(id_category),
+    FOREIGN KEY(id_unity) REFERENCES unity(id_unity)
 );
 
+
+-- Insertion des donnees de test dans la table unity
+INSERT INTO unity(name) VALUES 
+    ('Kg'),
+    ('Litres'),
+    ('Piece');
 
 -- Insertion des données de test dans la table 'category'
 ALTER SEQUENCE seq_category RESTART WITH 1;

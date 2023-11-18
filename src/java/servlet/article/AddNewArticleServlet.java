@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.article.Article;
 import model.article.Category;
+import model.article.Unity;
 
 /**
  *
@@ -50,6 +51,8 @@ public class AddNewArticleServlet extends HttpServlet {
             //Listes category
             List<Category> categorys = (List<Category>) GenericDAO.getAll(Category.class, null, null);
             request.setAttribute("categorys", categorys);
+            List<Unity> unitys = (List<Unity>) GenericDAO.getAll(Unity.class, null, null);
+            request.setAttribute("unitys", unitys);
             
             // All required assets
             List<String> css = new ArrayList<>();
@@ -87,7 +90,8 @@ public class AddNewArticleServlet extends HttpServlet {
             String designation = request.getParameter("designation");
             String category = request.getParameter("category");
             String tva = request.getParameter("tva");
-            Article newArticle = new Article(code, description, designation, category, tva);
+            String unity = request.getParameter("unity");
+            Article newArticle = new Article(code, description, designation, category, tva, unity);
             GenericDAO.save(newArticle, null);
         } catch(Exception e) {
             request.setAttribute("error", e.getMessage());

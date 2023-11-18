@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.article.Article;
 import model.article.Category;
+import model.article.Unity;
 
 /**
  *
@@ -66,7 +67,9 @@ public class EditArticleServlet extends HttpServlet {
           try {
             Article article = GenericDAO.findById(Article.class, Integer.valueOf(request.getParameter("idArticle")), null);
             List<Category> categorys = (List<Category>) GenericDAO.getAll(Category.class, null, null);
+            List<Unity> unitys = (List<Unity>) GenericDAO.getAll(Unity.class, null, null);
            request.setAttribute("categorys", categorys);
+            request.setAttribute("unitys", unitys);
             request.setAttribute("article", article);
             
             // All required assets
