@@ -26,6 +26,8 @@ public class Article {
     Category category;
     @DBField(name = "tva")
     Double tva;
+    @DBField(name = "id_unity", isForeignKey = true)
+    Unity unity;
     @DBField(name = "status")
     int status;
     
@@ -100,6 +102,21 @@ public class Article {
         this.setTva(tvaParsed);
     }
 
+    public Unity getUnity() {
+        return unity;
+    }
+    public void setUnity(Unity unity) {
+        this.unity = unity;
+    }
+    public void setUnity(String unity) throws Exception {
+        if(unity.trim().equals("") || unity == null) {
+            throw new Exception("Aucune valeur de unity saisie");
+        }
+        Integer idUnity = Integer.valueOf(unity);
+        Unity unityFind = GenericDAO.findById(Unity.class, idUnity, null);
+        this.setUnity(unityFind);
+    }
+
     public int getStatus() {
         return status;
     }
@@ -112,32 +129,35 @@ public class Article {
     public Article() {
     }
 
-    public Article(int idArticle, String code, String description, String designation, Category category, Double tva, int status) {
+    public Article(int idArticle, String code, String description, String designation, Category category, Double tva, Unity unity, int status) {
         this.idArticle = idArticle;
         this.code = code;
         this.description = description;
         this.designation = designation;
         this.category = category;
         this.tva = tva;
+        this.unity = unity;
         this.status = status;
     }
 
-    public Article(String code, String description, String designation, Category category, Double tva, int status) {
+    public Article(String code, String description, String designation, Category category, Double tva, Unity unity, int status) {
         this.code = code;
         this.description = description;
         this.designation = designation;
         this.category = category;
         this.tva = tva;
+        this.unity = unity;
         this.status = status;
     }
     
-    public Article(String code, String description, String designation, String category, String tva) throws Exception {
+    public Article(String code, String description, String designation, String category, String tva, String unity) throws Exception {
         try {
             this.setCode(code);
             this.setDescription(description);
             this.setDesignation(designation);
             this.setCategory(category);
             this.setTva(tva);
+            this.setUnity(unity);
             this.setStatus(1);
         } catch(Exception e) {
             throw e;
