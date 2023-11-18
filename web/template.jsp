@@ -236,19 +236,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                               aria-controls="ui-basic">
+                            <a class="nav-link" href="./article-price-insertion">
                                 <span class="menu-title">Proformas</span>
                                 <i class="mdi mdi-note-outline menu-icon"></i>
                             </a>
-                            <div class="collapse" id="ui-basic">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link"
-                                                             href="./article-price-insertion">Insertion des prix</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Liste
-                                            des proformas</a></li>
-                                </ul>
-                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pages/icons/mdi.html">
@@ -256,7 +247,6 @@
                                 <i class="mdi mdi-cart menu-icon"></i>
                             </a>
                         </li>
-
                     </ul>
                 </nav>
                 <!-- partial -->

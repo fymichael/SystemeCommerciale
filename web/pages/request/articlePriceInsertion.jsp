@@ -223,19 +223,19 @@
                                     <td><i class="mdi mdi-arrow-right-bold"></i></td>
                                     <td>Jumbo score</td>
                                     <td class="text-warning">30 000 AR</td>
-                                    <td><a href="" class="no-style-link">Voir plus</a></td>
+                                    <td><a href="./proforma-detail" class="no-style-link">Voir plus</a></td>
                                 </tr>
                                 <tr>
                                     <td><i class="mdi mdi-arrow-right-bold"></i></td>
                                     <td>Jumbo score</td>
                                     <td class="text-warning">30 000 AR</td>
-                                    <td><a href="" class="no-style-link">Voir plus</a></td>
+                                    <td><a href="./proforma-detail" class="no-style-link">Voir plus</a></td>
                                 </tr>
                                 <tr>
                                     <td><i class="mdi mdi-arrow-right-bold"></i></td>
                                     <td>Jumbo score</td>
                                     <td class="text-warning">30 000 AR</td>
-                                    <td><a href="" class="no-style-link">Voir plus</a></td>
+                                    <td><a href="./proforma-detail" class="no-style-link">Voir plus</a></td>
                                 </tr>
                             </tbody>
                         </table>
