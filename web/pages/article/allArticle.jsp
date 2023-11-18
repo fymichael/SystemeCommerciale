@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="model.article.Category"%>
 <%@page import="model.article.Article"%>
+<%@page import="model.article.Unity"%>
 
 <div class="page-header">
     <h3 class="page-title">
@@ -46,6 +47,7 @@
                                 <th> Designation </th>
                                 <th> Description </th>
                                 <th> Categorie </th>
+                                <th> Aticle </th>
                                 <th> TVA </th>
                                 <th> </th>
                             </tr>
@@ -60,6 +62,7 @@
                                 <td><%=articles.get(i).getDesignation() %></td>
                                 <td><%=articles.get(i).getDescription() %></td>
                                 <td><%=articles.get(i).getCategory().getDesignation() %></td>
+                                <td><%=articles.get(i).getUnity().getName() %></td>
                                 <td><%=articles.get(i).getTva() %></td>
                                 <td>
                                     <div class="d-flex align-items-center">
