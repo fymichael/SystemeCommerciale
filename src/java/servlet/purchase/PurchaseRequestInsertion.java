@@ -4,6 +4,8 @@
  */
 package servlet.purchase;
 
+import com.google.gson.Gson;
+import generalisation.GenericDAO.GenericDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,8 +13,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import model.article.Article;
+import model.purchase.ArticleQuantity;
+import model.purchase.PurchaseRequest;
 
 /**
  *
@@ -44,6 +50,14 @@ public class PurchaseRequestInsertion extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            //Initialiser l'objet session du demande achat
+            HttpSession session = request.getSession();
+            PurchaseRequest pr = new PurchaseRequest();
+            session.setAttribute("purchaseRequest", pr);
+            
+            //Initialiser la liste des articles
+            List<Article> articles = (List<Article>) GenericDAO.getAll(Article.class, null, null);
+            request.setAttribute("articles", articles);
             
             // All required assets
             List<String> css = new ArrayList<>();
@@ -75,6 +89,22 @@ public class PurchaseRequestInsertion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+        try {
+            String article = request.getParameter("article");
+            String quantity = request.getParameter("quantity");
+            
+            HttpSession session = request.getSession();
+            PurchaseRequest pr = (PurchaseRequest) session.getAttribute("purchaseRequest");
+            ArticleQuantity articleQuantity = pr.addArticleQuantity(article, quantity);
+
+            // affichage du nouvelle question pré inséré
+            Gson gson = new Gson();
+            out.print(gson.toJson(articleQuantity));
+            
+        } catch (Exception e) {
+            out.print("{\"error\": \"" + e.getMessage() + "\"}");
+        }
     }
 
     /**

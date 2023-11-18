@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="model.article.Article"%>
 
 <div class="page-header">
     <h3 class="page-title">
@@ -34,10 +36,14 @@
                         <div class="row align-items-end">
                             <div class="form-group col-md-5">
                                 <label for="article">Article</label>
+                                <% if(request.getAttribute("articles") != null) { 
+                                    List<Article> articles = (List<Article>)request.getAttribute("articles"); %>
                                 <select name="article" class="form-control form-control-sm input-height mt-2" id="">
-                                    <option value="">Cache bouche</option>
-                                    <option value="">Ordinateur</option>
+                                    <% for(int i = 0; i < articles.size(); i++) { %>
+                                    <option value="<%=articles.get(i).getIdArticle() %>"><%=articles.get(i).getDesignation() %></option>
+                                    <% } %>
                                 </select>
+                                <% } %>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="article">Quantite</label>

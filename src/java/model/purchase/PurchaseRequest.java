@@ -4,10 +4,13 @@
  */
 package model.purchase;
 
+import generalisation.GenericDAO.GenericDAO;
 import generalisation.annotations.DBField;
 import generalisation.annotations.DBTable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import model.article.Article;
 import model.base.Service;
 import model.base.Utilisateur;
 
@@ -39,7 +42,7 @@ public class PurchaseRequest {
     @DBField(name = "status")
     int status;
     
-    List<ArticleQuantity> articleQuantityList;
+    List<ArticleQuantity> articleQuantityList = new ArrayList<>();
     
     // Getter and setter
 
@@ -131,4 +134,32 @@ public class PurchaseRequest {
         this.status = status;
     }
     
+///Fonctions
+     // ajouter un article dans une demande
+    public ArticleQuantity addArticleQuantity(String article, String quantity) throws Exception {
+        if (article.trim().equals("")) {
+            throw new Exception("L'article ne doit pas être vide !");
+        }
+        if (quantity.trim().equals("")) {
+            throw new Exception("La quantite ne doit pas être vide !");
+        }
+
+        Double quantityParsed;
+        try {
+            quantityParsed = Double.valueOf(quantity);
+        } catch (Exception e) {
+            throw new Exception("La valeur du quantite doit être un nombre !");
+        }
+
+        if(quantityParsed < 0) {
+            throw new Exception("La valeur du quantite doit etre un nombre positif");
+        }
+        Article articleFinding = GenericDAO.findById(Article.class, Integer.valueOf(article), null);
+        ArticleQuantity articleQuantity = new ArticleQuantity(articleFinding, quantityParsed, 0, 0.0, 1);
+
+        this.getArticleQuantityList().add(articleQuantity);
+
+        return articleQuantity;
+    }
+
 }

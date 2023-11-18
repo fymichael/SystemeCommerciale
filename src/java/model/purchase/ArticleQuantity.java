@@ -119,4 +119,12 @@ public class ArticleQuantity {
         this.amount = amount;
         this.status = status;
     }
+    
+    public ArticleQuantity(Article article, double quantity, Integer idPurchaseOrder, double amount, int status) {
+        this.article = article;
+        this.quantity = quantity;
+        this.idPurchaseOrder = idPurchaseOrder;
+        this.amount = amount;
+        this.status = status;
+    }
 }
