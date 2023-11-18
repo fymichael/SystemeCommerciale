@@ -28,3 +28,4 @@ replay_pid*
 nbproject
 build
 test
+/dist/

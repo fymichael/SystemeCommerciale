@@ -1,3 +1,4 @@
+
 <div class="page-header">
     <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
@@ -18,18 +19,17 @@
     <div class="col-8 grid-margin mx-auto">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Detail demande achat</h4>
-                <h6>Demande N° : REQ0001</h6>
+                <h4 class="card-title">Envoyer demande achat</h4>
                 <div class="mt-4">
                     <form action="" method="POST">
                         <div class="form-group">
                             <label for="exampleInputUsername1">Titre du demande</label>
                             <input type="text" name="title" class="form-control" id="exampleInputUsername1"
-                                    placeholder="Demande mensuel du departement" value="Besoin en materiel mensuel">
+                                placeholder="Demande mensuel du departement">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
-                            <textarea name="description" class="form-control" id="" cols="30" rows="10">Comme pour chaque mois,  nous avons besoins de ces materiels pour la production</textarea>
+                            <textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
                         </div>
                         <div class="row align-items-end">
                             <div class="form-group col-md-5">
@@ -77,14 +77,8 @@
                         <p class="text-error"><i class="mdi mdi-information-outline"></i> Veillez remplir toutes les champs</p>
                         <div class="mt-3">
                             <button type="submit"
-                                    class="btn btn-gradient-primary px-5 me-2">Modifier demande</button>
-                            <a  href="../../purchase-request-list" class="btn btn-light">Cancel</a>
-                        </div>
-                        <div class="mt-3">
-                            <a href="" class="btn btn-gradient-danger px-5 me-2">Valide</a>
-                            <a href="" class="btn btn-gradient-success px-5 me-2">Refuse</a>
-                            <br>
-                            <a  href="../../purchase-request-list" class="btn btn-light mt-3">Cancel</a>
+                                class="btn btn-gradient-primary px-5 me-2">Valider</button>
+                            <a  href="./purchase-request-list" class="btn btn-light">Cancel</a>
                         </div>
                     </form>
                 </div>
