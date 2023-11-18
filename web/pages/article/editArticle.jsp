@@ -73,7 +73,7 @@
                                 <% if(request.getAttribute("unitys") != null) { 
                                     List<Unity> unitys = (List<Unity>)request.getAttribute("unitys");
                                 %>
-                                <select name="uniity">
+                                <select name="unity">
                                     <% for(int i = 0; i < unitys.size(); i++) { 
                                     if(unitys.get(i).getIdUnity() == article.getUnity().getIdUnity()) { %>
                                         <option cheked value="<%=unitys.get(i).getIdUnity() %>"><%=unitys.get(i).getName() %></option>
