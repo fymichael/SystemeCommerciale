@@ -91,18 +91,19 @@ INSERT INTO category (code, designation, description, status) VALUES
     ('CAT010', 'Alimentation', 'Produits alimentaires frais et emballes', 1);
 
 
+
 -- Insertion des données de test dans la table 'article'
 ALTER SEQUENCE seq_article RESTART WITH 1;
-INSERT INTO article (code, description, designation, id_category, tva, status) VALUES
-    ('ART001', 'Ordinateur portable performant avec SSD', 'Ordinateur portable', 1, 20.0, 1),
-    ('ART003', 'Table a manger en bois avec 6 chaises', 'Ensemble de table a manger', 3, 5.0, 1),
-    ('ART004', 'Roman policier - Le Jardin Secret', 'Le Jardin Secret', 4, 0.0, 1),
-    ('ART005', 'Ensemble de basketball et panier pour enfants', 'Ensemble de basketball pour enfants', 5, 5.0, 1),
-    ('ART006', 'Kit de soins anti-age', 'Kit anti-age', 6, 20.0, 1),
-    ('ART007', 'Poste de police LEGO City', 'Poste de police LEGO', 7, 5.0, 1),
-    ('ART008', 'Housses de siege de voiture pour toutes les saisons', 'Housses toutes saisons', 8, 10.0, 1),
-    ('ART009', 'Refrigerateur intelligent avec écran tactile', 'Refrigerateur intelligent', 9, 20.0, 1),
-    ('ART010', 'Lot de fruits et legumes biologiques', 'Produits biologiques', 10, 0.0, 1);
+INSERT INTO article (code, description, designation, id_category, tva, id_unity, status) VALUES
+    ('ART001', 'Ordinateur portable performant avec SSD', 'Ordinateur portable', 1, 20.0, 3, 1),
+    ('ART003', 'Table a manger en bois avec 6 chaises', 'Ensemble de table a manger', 3, 5.0, 3, 1),
+    ('ART004', 'Roman policier - Le Jardin Secret', 'Le Jardin Secret', 4, 0.0, 3, 1),
+    ('ART005', 'Ensemble de basketball et panier pour enfants', 'Ensemble de basketball pour enfants', 5, 5.0, 3, 1),
+    ('ART006', 'Kit de soins anti-age', 'Kit anti-age', 6, 20.0, 3, 1),
+    ('ART007', 'Poste de police LEGO City', 'Poste de police LEGO', 7, 5.0, 3, 1),
+    ('ART008', 'Housses de siege de voiture pour toutes les saisons', 'Housses toutes saisons', 8, 10.0, 3, 1),
+    ('ART009', 'Refrigerateur intelligent avec ecran tactile', 'Refrigerateur intelligent', 9, 20.0, 3, 1),
+    ('ART010', 'Lot de fruits et legumes biologiques', 'Produits biologiques', 10, 0.0, 3, 1);
 
 -- TABLE REQUIS POUR LE DEMANDE D'ACHAT
 
