@@ -1,3 +1,8 @@
+<%@page import="java.util.List" %>
+<%@page import="model.supplier.Supplier" %>
+<%
+    List<Supplier> listSuppliers = (List<Supplier>) request.getAttribute("listSupplier");
+%>
 <div class="page-header">
     <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
@@ -44,36 +49,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <% for (int i=0; i<listSuppliers.size();i++) { %>
                             <tr>
-                                <td><a href="" style="text-decoration: none;">#1</a></td>
-                                <td>Jumbo score</td>
-                                <td>Tanjombate</td>
-                                <td>+261 23 142 23</td>
-                                <td>jumboScore@gmail.com</td>
-                                <td>PPN, Goutes, Fournitures de bureau, ...</td>
-                                <td><a href="" class="text-warning action-icon"><i class="mdi mdi-settings"></i></a><a
-                                        href="" class="text-danger action-icon"><i class="mdi mdi-delete"></i></a></td>
+                                <td><a href="" style="text-decoration: none;">#<%= listSuppliers.get(i).getIdSupplier() %></a></td>
+                                <td><%= listSuppliers.get(i).getNameSupplier() %></td>
+                                <td><%= listSuppliers.get(i).getAdresse() %></td>
+                                <td><%= listSuppliers.get(i).getResponsableContact() %></td>
+                                <td><%= listSuppliers.get(i).getEmail() %></td>
+                                <td><%= listSuppliers.get(i).getCategory() %></td>
+                                <td><a href="./supplier-modification?idSupplier=<%= listSuppliers.get(i).getIdSupplier() %>" class="text-warning action-icon"><i class="mdi mdi-settings"></i></a><a
+                                        href="./supplier-modification?idSupplier=<%= listSuppliers.get(i).getIdSupplier() %>&action=1" class="text-danger action-icon"><i class="mdi mdi-delete"></i></a></td>
                             </tr>
-                            <tr>
-                                <td><a href="" style="text-decoration: none;">#2</a></td>
-                                <td>Jumbo score</td>
-                                <td>Tanjombate</td>
-                                <td>+261 23 142 23</td>
-                                <td>jumboScore@gmail.com</td>
-                                <td>PPN, Goutes, Fournitures de bureau, ...</td>
-                                <td><a href="" class="text-warning action-icon"><i class="mdi mdi-settings"></i></a><a
-                                        href="" class="text-danger action-icon"><i class="mdi mdi-delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="" style="text-decoration: none;">#3</a></td>
-                                <td>Jumbo score</td>
-                                <td>Tanjombate</td>
-                                <td>+261 23 142 23</td>
-                                <td>jumboScore@gmail.com</td>
-                                <td>PPN, Goutes, Fournitures de bureau, ...</td>
-                                <td><a href="" class="text-warning action-icon"><i class="mdi mdi-settings"></i></a><a
-                                        href="" class="text-danger action-icon"><i class="mdi mdi-delete"></i></a></td>
-                            </tr>
+                            <% } %>
                         </tbody>
                     </table>
                 </div>

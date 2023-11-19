@@ -147,3 +147,20 @@ INSERT INTO article_quantity (id_purchase_request, id_article, quantity, id_purc
 (2, 2, 1, NULL, 0, 1),
 (2, 9, 10, NULL, 0, 1),
 (2, 8, 2, NULL, 0, 1);
+
+--- FOURNISSEURS ---
+create sequence seq_supplier;
+create table supplier(
+    id_supplier integer primary key DEFAULT nextval('seq_supplier'),
+    name_supplier varchar(30),
+    responsable_contact varchar(15),
+    email varchar(50),
+    adress varchar(20),
+    category_product TEXT,
+    status integer
+ );
+alter sequence seq_supplier start with 1;
+insert into supplier (name_supplier, responsable_contact, email, adress, category_product,status) values 
+('Score','+261342665394', 'score.mgr@gmail.com','Akoor digue','Alimentation, sport , jouets',1),
+('Disconord','+261325167354', 'leaderprice.mgr@gmail.com','Ivandry', 'Meuble , fournitures de bureau' ,1),
+('Rasetta','+261325467374', 'rasetta.mgr@gmail.com','Ankorondrano','Automobile, pieces automobiles ',1);

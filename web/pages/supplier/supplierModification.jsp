@@ -1,7 +1,9 @@
 <%@page import="java.util.List" %>
 <%@page import="model.article.Category" %>
+<%@page import="model.supplier.Supplier" %>
 <%
     List<Category> listCategory = (List<Category>) request.getAttribute("listCategory");
+    Supplier s = (Supplier) request.getAttribute("supplier");
 %>
 <div class="page-header">
     <h3 class="page-title">
@@ -21,31 +23,32 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Insertion nouvelle fournisseur</h4>
+                <h4 class="card-title">Modification du fournisseur</h4>
                 <div class="mt-4">
-                    <form action="./supplier-insertion" method="POST">
+                    <form action="./supplier-modification" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Nom du fournisseur</label>
                                     <input type="text" class="form-control" id="exampleInputUsername1"
-                                           placeholder="Username" name="name">
+                                           placeholder="Username" name="name" value="<%= s.getNameSupplier() %>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Adresse</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1"
-                                           placeholder="Antananrivo Avenue Tokyo" name="adresse">
+                                           placeholder="Antananrivo Avenue Tokyo" name="adresse" value="<%= s.getAdresse() %>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Contact du
                                         responsable</label>
                                     <input type="text" class="form-control" id="exampleInputPassword1"
-                                        placeholder="+261 00 000 00" name="contact">
+                                           placeholder="+261 00 000 00" name="contact" value="<%= s.getResponsableContact() %>">
                                 </div>
+                                <input type="hidden" name="idSupplier" value="<%= s.getIdSupplier() %>">
                                 <div class="form-group">
                                     <label for="exampleInputConfirmPassword1">Mail</label>
                                     <input type="mail" class="form-control" id="exampleInputConfirmPassword1"
-                                           placeholder="johnDoe@example.com" name="email">
+                                           placeholder="johnDoe@example.com" name="email" value="<%= s.getEmail() %>">
                                 </div>
                                 <p class="text-error"><i class="mdi mdi-information-outline"></i> Veillez remplir toutes les champs</p>
                                 <button type="submit" class="btn btn-gradient-primary px-5 me-2">Valider</button>
