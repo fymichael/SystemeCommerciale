@@ -23,11 +23,11 @@
             <div class="card-body">
                 <h4 class="card-title">Listes des fournisseurs</h4>
                 <div class="mt-4 d-flex align-items-center justify-content-between">
-                    <form action="" method="POST">
+                    <form action="./supplier-search" method="POST">
                         <div class="input-groups d-flex align-items-center">
-                            <input type="text" class="form-control" placeholder="Nom du fournisseur">
+                            <input type="text" class="form-control" placeholder="Nom du fournisseur" name="keyWords">
                             <div>
-                                <input type="button" class="mx-5 btn btn-gradient-primary" value="Chercher">
+                                <input type="submit" class="mx-5 btn btn-gradient-primary" value="Chercher">
                             </div>
                         </div>
                     </form>
